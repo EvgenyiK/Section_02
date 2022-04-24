@@ -4,11 +4,31 @@
 
 using namespace std;
 
-
+void PrintIntro();
 void PlayGame();
+bool AskToPlayAgain();
+
+
+
+
+
+//The entry point for our application
+int main() 
+{
+	bool bPlayAgain = false;
+	do {
+		PrintIntro();
+		PlayGame();
+		bPlayAgain = AskToPlayAgain();
+	} while (bPlayAgain);
+	
+	
+	return 0;
+}
+
 
 // introduce the game
-void PrintIntro() 
+void PrintIntro()
 {
 	constexpr int WORD_LENGHT = 9;
 	cout << "Welcome to Bulls and Cows, a fun word game." << endl;
@@ -19,7 +39,7 @@ void PrintIntro()
 }
 
 
-string GetGues() 
+string GetGues()
 {
 	//get a guess from the player
 	cout << "Enter you guess: ";
@@ -28,16 +48,6 @@ string GetGues()
 	return Guess;
 }
 
-
-
-//The entry point for our application
-int main() 
-{
-
-	PrintIntro();
-	PlayGame();
-	return 0;
-}
 
 void PlayGame()
 {
@@ -49,4 +59,12 @@ void PlayGame()
 		cout << "Your guess was: " << st << endl;
 		cout << endl;
 	}
+}
+
+bool AskToPlayAgain()
+{
+	cout << "Do you want to play again (y/n) ?";
+	string Response = "";
+	getline(cin, Response);
+	return (Response[0] == 'y') || (Response[0] == 'Y');
 }
