@@ -24,9 +24,25 @@ bool FBullCowGame::IsGameWon() const
 	return false;
 }
 
-EWordStatus FBullCowGame::CheckGuessValidity(FString) const
+EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 {
-	return EWordStatus::OK;
+	if (false)
+	{
+		return EGuessStatus::Not_Isogram;
+	}
+	else if (false)
+	{
+		return EGuessStatus::Not_Lowercase;
+	}
+	else if (Guess.length() != GetHiddenWordLenght())
+	{
+		return EGuessStatus::Wrong_Lenght;
+	}
+	else
+	{
+		return EGuessStatus::OK;
+	}
+	
 }
 
 // receives a VALID guess, increments turn , and returns count
