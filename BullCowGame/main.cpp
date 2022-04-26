@@ -3,11 +3,14 @@
 * view in a MVC pattern, and is responsible 
 * for all user interaction. For game logic see the FBullCowGame class.
 */
+#pragma once
+
 
 #include <iostream>
 #include <string>
 #include "FBullCowGame.h"
 
+// to make syntax Unreal friendly
 using FText = std::string;
 using int32 = int;
 
@@ -59,8 +62,6 @@ void PlayGame()
 // introduce the game
 void PrintIntro()
 {
-	std::cout << "\n\n Welcome to Bulls and Cows, a fun word game." << std::endl;
-
 	
 	std::cout <<
 		R"(
@@ -143,8 +144,9 @@ FText GetValidGues()
 
 bool AskToPlayAgain()
 {
-	std::cout << "Do you want to play again with the same hidden word (y/n) ?";
+	std::cout << "Do you want to play again with the same hidden word (y/n) ? ";
 	FText Response = "";
 	std::getline(std::cin, Response);
 	return (Response[0] == 'y') || (Response[0] == 'Y');
 }
+
